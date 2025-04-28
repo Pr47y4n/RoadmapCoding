@@ -1,1 +1,1 @@
-All the code writen during readig of this book will be paced under this repository 
+All the code written while reading this book will be placed in this repository.
