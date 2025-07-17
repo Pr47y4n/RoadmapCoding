@@ -1,17 +1,17 @@
 template <typename T>
-class unique{
-    private:
+class unique{ // capital naming pls
+    private: // indent for access specifiers
         T* res;
     public:
         unique(T* a = nullptr) :res(a){};
         unique(const unique<T>& ptr) = delete;
         unique& operator= (const unique<T>& ptr) = delete;
-        unique(unique<T>&& ptr){
+        unique(unique<T>&& ptr){// lets mark the move as noexcept, please learn about it
             res = ptr.res;
             ptr.res = nullptr;
         }
         unique& operator= (unique<T>&& ptr){
-            if(this != &ptr){
+            if(this != &ptr){ // you loose the ptr here, add test
                 if(res){
                     delete res;
                 }
@@ -22,10 +22,10 @@ class unique{
 
             return *this;
         }
-        T* operator->(){
+        T* operator->(){ // can be cont function
             return res;
         }
-        T& operator*(){
+        T& operator*(){ // can be const function as it is don't change anything in function
             return *res;
         }
         ~unique(){
@@ -52,3 +52,6 @@ class unique{
             std::swap(res, other.res);
         }
 };
+
+// add explicit operator bool() const noexcept 
+// add make_unique function
