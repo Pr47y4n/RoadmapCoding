@@ -2,7 +2,10 @@
 
 void print(int* arr, int sze){
     for(int i = 0; i < sze; ++i){
-        std::cout << arr[i] << " ";
+
+
+
+	    std::cout << arr[i] << " ";
     }
 }
 
